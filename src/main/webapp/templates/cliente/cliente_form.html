@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="page">
+<head>
+<title>APP</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+	name="viewport" />
+<link rel="shortcut icon" href="/images/favicon.ico"
+	th:href="@{/images/favicon.ico}" type="image/x-icon" />
+<script src="../../js/jquery-2.2.3.min.js"
+	th:src="@{/js/jquery-2.2.3.min.js}"></script>
+<script src="../../js/jquery-ui.js" th:src="@{/js/jquery-ui.js}"></script>
+<script src="../../js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+<script src="../../js/app.min.js" th:src="@{/js/app.min.js}"></script>
+<script th:src="@{/js/plugins/dataTables/jquery.dataTables.min.js}"></script>
+<link th:href="@{/css/plugins/dataTables.bootstrap.min.css}"
+	rel="stylesheet" />
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"
+	href="../../css/bootstrap.min.css" />
+<link href="../../css/font-awesome.min.css"
+	th:href="@{/css/font-awesome.min.css}" rel="stylesheet" />
+<link rel="stylesheet" th:href="@{/css/AdminLTE.min.css}"
+	href="../../css/AdminLTE.min.css" />
+<link th:href="@{/css/plugins/responsive.bootstrap.min.css}"
+	href="../../css/plugins/responsive.bootstrap.min.css" rel="stylesheet" />
+</head>
+<body class="hold-transition skin-blue-light sidebar-mini ">
+<div th:fragment ="contenido">
+
+	<script type="text/javascript">
+function limpiarForm() {
+	$("#id").val("");
+	$("#codigo").val("");
+	$("#ruc").val("");
+	$("#razonSocial").val("");
+
+}
+function nuevoRegistro() {
+	limpiarForm();
+	$("#botonNuevo").hide();
+	$("#codigo").focus();
+}
+</script>
+	<h4 class="page-header" th:text="#{tipo_cliente.form.titulo}">Detalles
+		de clientes</h4>
+	<span th:text="${error}" style="color: red"> Ocurrió un error en
+		la base de datos</span>
+	<span th:text="${msgExito}" style="color: green">Registro
+		Guardado</span>
+	<ul>
+		<li th:each=" err : ${errorList}" th:text="#{${err.defaultMessage}}"
+			style="color: red">Debe ingresar codigo</li>
+	</ul>
+	<!-- Inicio del Formulario -->
+	<form th:action="@{/cliente/save}" th:object="${cliente}" method="post"
+		role="form">
+		<input type="hidden" th:field="*{id}" />
+
+		<div class="row">
+			<div class="form-group col-lg-6 col-md-8">
+				<label for="codigo" th:text="#{cliente.codigo.lbl}"
+					class="field-label">Código:</label> <input type="text"
+					th:field="*{codigo}" maxlength="60" class="form-control"
+					autofocus="autofocus" />
+			</div>
+
+			<div class="form-group col-lg-6 col-md-4">
+				<label for="ruc" th:text="#{cliente.ruc.lbl}" class="field-label">RUC:</label>
+				<input type="text" th:field="*{ruc}" maxlength="60"
+					class="form-control" />
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="razonSocial" th:text="#{cliente.razon.lbl}"
+				class="field-label">Razón social:</label> <input type="text"
+				th:field="*{razonSocial}" maxlength="60" class="form-control" />
+		</div>
+
+
+		<div class="form-group">
+			<label for="tipoCliente" th:text="#{cliente.tipoCliente.lbl}"
+				class="field-label">Tipo Cliente:</label> <select
+				th:field="*{tipoCliente}" class="form-control">
+				<option th:each=" tip : ${tipoClienteList}" th:value="${tip.id}"
+					th:text="${tip.nombre}">Excelente</option>
+			</select>
+
+		</div>
+
+		<!-- Inicio panel botones -->
+		<div>
+			<p>
+				<button type="button" class="btn btn-default" id="botonNuevo"
+					onclick="nuevoRegistro()">
+					<i class="fa fa-plus-circle"></i> <span
+						th:text="#{form.boton.crear}">Nuevo</span>
+				</button>
+			</p>
+			<button type="submit" class="btn btn-default">
+				<i class="fa fa-save"></i> <span th:text="#{form.boton.guardar}">Guardar</span>
+			</button>
+		</div>
+	</form>
+	<!-- Fin panel botones -->
+</div>
+</body>
+</html>
