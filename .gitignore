@@ -8,3 +8,15 @@
 \.settings/
 
 \.tern-project
+
+target/classes/Messages\.properties
+
+target/classes/META-INF/MANIFEST\.MF
+
+target/classes/META-INF/persistence\.xml
+
+target/m2e-wtp/web-resources/META-INF/MANIFEST\.MF
+
+target/m2e-wtp/web-resources/META-INF/maven/py\.com\.owl/owlapp/pom\.properties
+
+target/m2e-wtp/web-resources/META-INF/maven/py\.com\.owl/owlapp/pom\.xml
