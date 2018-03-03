@@ -3,10 +3,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>py.com.owl</groupId>
-	<artifactId>owlapp</artifactId>
+	<artifactId>gestionart</artifactId>
 	<packaging>war</packaging>
 	<version>1.0.0</version>
-	<name>owlapp</name>
+	<name>gestionart</name>
 
 	<description>Aplicación Curso JavaWeb</description>
 
@@ -234,7 +234,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>estudio</finalName>
+		<finalName>gestionart</finalName>
 		<resources>
 
 			<resource>
@@ -296,7 +296,7 @@
 				<configuration>
 					<archive>
 						<manifestEntries>
-							<Logging-Profile>owlapp</Logging-Profile>
+							<Logging-Profile>gestionart</Logging-Profile>
 						</manifestEntries>
 					</archive>
 				</configuration>
