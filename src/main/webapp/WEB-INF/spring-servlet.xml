@@ -76,7 +76,7 @@
 	</bean>
 
 	<!-- JDNI name for EntityManagerFactory is defined in src/main/resources/META-INF/persistence.xml -->
-	<jee:jndi-lookup jndi-name="java:jboss/owlapp/persistence"
+	<jee:jndi-lookup jndi-name="java:jboss/gestion/persistence"
 		id="entityManagerFactory" expected-type="javax.persistence.EntityManagerFactory" />
 
 	<bean id="entityManager"
