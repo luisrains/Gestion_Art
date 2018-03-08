@@ -3,6 +3,7 @@ package py.com.owl.owlapp.controllers;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.WebApplicationContext;
 
 /**
@@ -13,14 +14,13 @@ import org.springframework.web.context.WebApplicationContext;
  *
  */
 @Controller
-@Scope(WebApplicationContext.SCOPE_SESSION)
 public class Dashboard {
 
 
-	@RequestMapping("/")
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index() {
 
-		return "index";
+		return "main/index";
 	}
 
 }
