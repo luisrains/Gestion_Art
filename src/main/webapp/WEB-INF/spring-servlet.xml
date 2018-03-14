@@ -32,7 +32,7 @@
 	<!-- **************************************************************** -->
 	<!-- SPRING ANNOTATION PROCESSING -->
 	<!-- **************************************************************** -->
-	<mvc:annotation-driven conversion-service="conversionService" />
+	<!-- <mvc:annotation-driven conversion-service="conversionService" /> -->
 
 	<context:component-scan base-package="py.*" />
 
@@ -42,7 +42,7 @@
 	<!-- CONVERSION SERVICE -->
 	<!-- Standard Spring formatting-enabled implementation -->
 	<!-- **************************************************************** -->
-	<bean id="conversionService"
+	<!-- <bean id="conversionService"
 		class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
 
 		<property name="converters">
@@ -52,7 +52,7 @@
 		</property>
 	
 	</bean>
-
+ -->
 
 	<!-- **************************************************************** -->
 	<!-- THYMELEAF-SPECIFIC ARTIFACTS -->
@@ -68,7 +68,6 @@
 
 	<bean id="templateEngine" class="org.thymeleaf.spring4.SpringTemplateEngine">
 		<property name="templateResolver" ref="templateResolver" />
-	
 	</bean>
 
 	<bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
